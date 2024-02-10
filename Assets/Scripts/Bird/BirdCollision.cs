@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Random = UnityEngine.Random;
 
 public class BirdCollision : MonoBehaviour
 {
@@ -15,9 +16,9 @@ public class BirdCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_isDead) return;
+        Instantiate(_blood, transform.position, Quaternion.Euler(0, 0, Random.Range(0.0f, 360.0f)));
 
-        Instantiate(_blood, transform.position, transform.rotation);
+        if (_isDead) return;
 
         if (
             collision.collider.GetComponent(typeof(Pipe)) != null ||
