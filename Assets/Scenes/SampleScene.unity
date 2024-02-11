@@ -10933,6 +10933,7 @@ MonoBehaviour:
   _spawnRate: 2
   _yRandomRange: {x: 1, y: -4}
   _pipeGroupPrefab: {fileID: 8247068406573840526, guid: ce9ca58879777ff419629030581efaff, type: 3}
+  _pipeMovement: {fileID: 8247068406573840513, guid: ce9ca58879777ff419629030581efaff, type: 3}
   _gameState: {fileID: 234710182}
 --- !u!4 &1553296384
 Transform:
