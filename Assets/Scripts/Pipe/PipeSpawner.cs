@@ -6,16 +6,16 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField] private float _spawnRate = 1;
     [SerializeField] private Vector2 _yRandomRange = new Vector2(1f, -4f);
 
-    [SerializeField] private PipeMovement _pipeMovement;
+    [SerializeField] private PipeGroup _pipeMovement;
     [SerializeField] private GameState _gameState;
 
-    private List<PipeMovement> _pipeMovements;
+    private List<PipeGroup> _pipeGroups;
     private float _leftEdgeOutsideCamera;
 
 
     private void Awake()
     {
-        _pipeMovements = new List<PipeMovement>();
+        _pipeGroups = new List<PipeGroup>();
     }
 
     private void OnEnable()
@@ -35,20 +35,20 @@ public class PipeSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (_gameState.CurrentGameState == GameState.GameStateEnum.Pause || _pipeMovements.Count == 0)
+        if (_gameState.CurrentGameState == GameState.GameStateEnum.Pause || _pipeGroups.Count == 0)
         {
             return;
         }
 
-        foreach (var pipeMovement in _pipeMovements)
+        foreach (var pipeMovement in _pipeGroups)
         {
             pipeMovement.MoveStep();
         }
 
-        if (_pipeMovements[0].transform.position.x < _leftEdgeOutsideCamera)
+        if (_pipeGroups[0].transform.position.x < _leftEdgeOutsideCamera)
         {
-            Destroy(_pipeMovements[0].gameObject);
-            _pipeMovements.RemoveAt(0);
+            Destroy(_pipeGroups[0].gameObject);
+            _pipeGroups.RemoveAt(0);
         }
     }
 
@@ -56,8 +56,8 @@ public class PipeSpawner : MonoBehaviour
     private void Spawn()
     {
         float randY = Random.Range(_yRandomRange.x, _yRandomRange.y);
-        PipeMovement instantiatedPipeMovement = Instantiate(_pipeMovement, new Vector3(12, randY, 0), Quaternion.identity);
+        PipeGroup instantiatedPipeMovement = Instantiate(_pipeMovement, new Vector3(12, randY, 0), Quaternion.identity);
 
-        _pipeMovements.Add(instantiatedPipeMovement);
+        _pipeGroups.Add(instantiatedPipeMovement);
     }
 }

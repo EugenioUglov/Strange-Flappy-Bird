@@ -1,19 +1,27 @@
 using UnityEngine;
-using System;
 using Random = UnityEngine.Random;
 
-public class BirdCollision : MonoBehaviour
+public class Bird : MonoBehaviour
 {
-    public Action OnDie;
+    [SerializeField] private float _force = 4;
 
     [SerializeField] private Sprite _deathBird;
     [SerializeField] private GameObject _bloodEffect;
     [SerializeField] private GameObject _blood;
     [SerializeField] private Score _score;
+    [SerializeField] private GameState _gameState;
+    [SerializeField] private PipeSpawner _pipeSpawner;
+    [SerializeField] private GameObject _clickToRestartGO;
 
     private bool _isDead = false;
+    private Rigidbody2D _birdRigidbody;
 
 
+    private void Start()
+    {
+        _birdRigidbody = GetComponent<Rigidbody2D>();
+    }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Instantiate(_blood, transform.position, Quaternion.Euler(0, 0, Random.Range(0.0f, 360.0f)));
@@ -21,8 +29,8 @@ public class BirdCollision : MonoBehaviour
         if (_isDead) return;
 
         if (
-            collision.collider.GetComponent(typeof(PipeTag)) != null ||
-            collision.collider.GetComponent(typeof(GroundTag)) != null
+            collision.collider.GetComponent(typeof(Pipe)) != null ||
+            collision.collider.GetComponent(typeof(Ground)) != null
         )
         {
             _isDead = true;
@@ -32,8 +40,9 @@ public class BirdCollision : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = _deathBird;
             GetComponent<Rigidbody2D>().freezeRotation = false;
             GetComponent<Animator>().enabled = false;
-
-            OnDie?.Invoke();
+            _pipeSpawner.enabled = false;
+            _clickToRestartGO.SetActive(true);
+            _gameState.CurrentGameState = GameState.GameStateEnum.Pause;
         }
     }
 
@@ -45,5 +54,11 @@ public class BirdCollision : MonoBehaviour
         {
             _score.AddScore();
         }
+    }
+    
+    public void Jump()
+    { 
+        _birdRigidbody.velocity = Vector2.up * _force;
+        AudioManager.Instance.PlaySFX("WingFlap");
     }
 }

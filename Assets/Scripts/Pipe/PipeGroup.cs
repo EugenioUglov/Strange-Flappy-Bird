@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PipeMovement : MonoBehaviour
+public class PipeGroup : MonoBehaviour
 {
     [SerializeField] private float _speed = 5;
 

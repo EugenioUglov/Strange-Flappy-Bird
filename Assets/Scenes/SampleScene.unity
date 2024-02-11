@@ -264,9 +264,7 @@ GameObject:
   - component: {fileID: 128865491}
   - component: {fileID: 128865490}
   - component: {fileID: 128865494}
-  - component: {fileID: 128865496}
   - component: {fileID: 128865495}
-  - component: {fileID: 128865497}
   m_Layer: 0
   m_Name: Biird
   m_TagString: Untagged
@@ -408,40 +406,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 128865487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1347ad64fa25dc8408fe9e6d4f8b026f, type: 3}
+  m_Script: {fileID: 11500000, guid: b0b20fcc225d8684283053c3e6641868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _force: 4
   _deathBird: {fileID: 21300000, guid: 33aad261d8fa43e48aeffab1c4c62f7a, type: 3}
   _bloodEffect: {fileID: 1751240340}
   _blood: {fileID: 4440176325419471878, guid: dc69f3960ed7bb841b6e627f156e8490, type: 3}
   _score: {fileID: 1150415848}
---- !u!114 &128865496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128865487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c26dbc2e543284fb57ea37d38c5743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 4
---- !u!114 &128865497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128865487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17255037d0515be4887e76b8e2eb2971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _birdCollision: {fileID: 128865495}
-  _birdMovement: {fileID: 128865496}
   _gameState: {fileID: 234710182}
   _pipeSpawner: {fileID: 1553296383}
   _clickToRestartGO: {fileID: 1571844252}
@@ -10932,7 +10904,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnRate: 2
   _yRandomRange: {x: 1, y: -4}
-  _pipeGroupPrefab: {fileID: 8247068406573840526, guid: ce9ca58879777ff419629030581efaff, type: 3}
   _pipeMovement: {fileID: 8247068406573840513, guid: ce9ca58879777ff419629030581efaff, type: 3}
   _gameState: {fileID: 234710182}
 --- !u!4 &1553296384
@@ -11215,7 +11186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameState: {fileID: 234710182}
-  _birdMovement: {fileID: 128865496}
+  _bird: {fileID: 128865495}
 --- !u!4 &1932192111
 Transform:
   m_ObjectHideFlags: 0

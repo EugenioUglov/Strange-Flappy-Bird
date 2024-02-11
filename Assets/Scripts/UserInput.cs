@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class UserInput : MonoBehaviour
 {
     [SerializeField] private GameState _gameState;
-    [SerializeField] private BirdMovement _birdMovement;
+    [SerializeField] private Bird _bird;
 
 
     void Update()
@@ -33,7 +33,7 @@ public class UserInput : MonoBehaviour
         }
         else 
         {
-            _birdMovement.Jump();
+            _bird.Jump();
         }
     }
 }
