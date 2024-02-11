@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class BirdCollision : MonoBehaviour
 {
-    public static Action OnDie;
+    public Action OnDie;
 
     [SerializeField] private Sprite _deathBird;
     [SerializeField] private GameObject _bloodEffect;
@@ -21,8 +21,8 @@ public class BirdCollision : MonoBehaviour
         if (_isDead) return;
 
         if (
-            collision.collider.GetComponent(typeof(Pipe)) != null ||
-            collision.collider.GetComponent(typeof(Ground)) != null
+            collision.collider.GetComponent(typeof(PipeTag)) != null ||
+            collision.collider.GetComponent(typeof(GroundTag)) != null
         )
         {
             _isDead = true;

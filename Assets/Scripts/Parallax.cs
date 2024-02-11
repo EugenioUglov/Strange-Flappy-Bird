@@ -4,9 +4,9 @@ public class Parallax : MonoBehaviour
 {
     [SerializeField] private float _animationSpeed = 1;
 
-    private MeshRenderer _meshRenderer;
+    [SerializeField] private GameState _gameState;
 
-    private bool _isMove = true;
+    private MeshRenderer _meshRenderer;
 
 
     private void Awake()
@@ -16,24 +16,11 @@ public class Parallax : MonoBehaviour
 
     private void Update() 
     {
-        if (_isMove)
+        if (_gameState.CurrentGameState == GameState.GameStateEnum.Pause)
         {
-            _meshRenderer.material.mainTextureOffset += new Vector2(_animationSpeed * Time.deltaTime, 0);
+            return;
         }
-        else 
-        {
-            transform.Translate(0, 0, 0);
-        }
-    }
-
-
-    public void Move()
-    { 
-        _isMove = true;
-    }
-    
-    public void Stop()
-    { 
-        _isMove = false;
+        
+        _meshRenderer.material.mainTextureOffset += new Vector2(_animationSpeed * Time.deltaTime, 0);
     }
 }

@@ -3,7 +3,7 @@ using System;
 
 public class BirdMovement : MonoBehaviour
 {
-    public static Action OnMove;
+    public Action OnJump;
 
     [SerializeField]
     private float _force = 4;
@@ -15,28 +15,11 @@ public class BirdMovement : MonoBehaviour
     {
         _birdRigidbody = GetComponent<Rigidbody2D>();
     }
+    
 
-    private void Update() 
-    {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-        {
-            OnClick();
-        }
-
-        if (Input.touchCount > 0)
-        { 
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
-            { 
-                OnClick();
-            }
-        }
-    }
-
-    private void OnClick() 
-    {
+    public void Jump()
+    { 
         _birdRigidbody.velocity = Vector2.up * _force;
-        OnMove?.Invoke();
+        OnJump?.Invoke();
     }
 }

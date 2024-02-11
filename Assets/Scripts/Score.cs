@@ -5,18 +5,18 @@ public class Score : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _scoreTextMehPro;
     
-    private int scoreNumber;
+    private int _scoreNumber;
 
 
     private void Start()
     {
-        scoreNumber = 0;
+        _scoreNumber = 0;
     }
 
 
     public void AddScore(int additionalScore = 1)
     {
-        scoreNumber++;
-        _scoreTextMehPro.text = scoreNumber.ToString();
+        _scoreNumber++;
+        _scoreTextMehPro.text = _scoreNumber.ToString();
     }
 }
