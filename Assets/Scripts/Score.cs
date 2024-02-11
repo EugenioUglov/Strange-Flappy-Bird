@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
     }
 
 
-    public void AddScore(int additionalScore = 1)
+    public void AddScore()
     {
         _scoreNumber++;
         _scoreTextMehPro.text = _scoreNumber.ToString();

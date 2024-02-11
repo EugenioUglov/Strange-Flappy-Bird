@@ -6,16 +6,16 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField] private float _spawnRate = 1;
     [SerializeField] private Vector2 _yRandomRange = new Vector2(1f, -4f);
 
-    [SerializeField] private GameObject _pipeGroupPrefab;
+    [SerializeField] private PipeMovement _pipeMovement;
     [SerializeField] private GameState _gameState;
 
-    private List<GameObject> _instantiatedPipeGroups;
+    private List<PipeMovement> _pipeMovements;
     private float _leftEdgeOutsideCamera;
 
 
     private void Awake()
     {
-        _instantiatedPipeGroups = new List<GameObject>();
+        _pipeMovements = new List<PipeMovement>();
     }
 
     private void OnEnable()
@@ -35,20 +35,20 @@ public class PipeSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (_gameState.CurrentGameState == GameState.GameStateEnum.Pause || _instantiatedPipeGroups.Count == 0)
+        if (_gameState.CurrentGameState == GameState.GameStateEnum.Pause || _pipeMovements.Count == 0)
         {
             return;
         }
 
-        foreach (var pipeGroup in _instantiatedPipeGroups)
+        foreach (var pipeMovement in _pipeMovements)
         {
-            pipeGroup.GetComponent<PipeMovement>().MoveStep();
+            pipeMovement.MoveStep();
         }
 
-        if (_instantiatedPipeGroups[0].transform.position.x < _leftEdgeOutsideCamera)
-        { 
-            Destroy(_instantiatedPipeGroups[0]);
-            _instantiatedPipeGroups.RemoveAt(0);
+        if (_pipeMovements[0].transform.position.x < _leftEdgeOutsideCamera)
+        {
+            Destroy(_pipeMovements[0].gameObject);
+            _pipeMovements.RemoveAt(0);
         }
     }
 
@@ -56,8 +56,8 @@ public class PipeSpawner : MonoBehaviour
     private void Spawn()
     {
         float randY = Random.Range(_yRandomRange.x, _yRandomRange.y);
-        GameObject instantiatedPipeGroup = Instantiate(_pipeGroupPrefab, new Vector3(12, randY, 0), Quaternion.identity);
+        PipeMovement instantiatedPipeMovement = Instantiate(_pipeMovement, new Vector3(12, randY, 0), Quaternion.identity);
 
-        _instantiatedPipeGroups.Add(instantiatedPipeGroup);
+        _pipeMovements.Add(instantiatedPipeMovement);
     }
 }
