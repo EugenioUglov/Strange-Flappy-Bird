@@ -3,15 +3,9 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _scoreTextMehPro;
+    [SerializeField] private TMP_Text _scoreTextMehPro;
     
-    private int _scoreNumber;
-
-
-    private void Start()
-    {
-        _scoreNumber = 0;
-    }
+    private int _scoreNumber = 0;
 
 
     public void AddScore()

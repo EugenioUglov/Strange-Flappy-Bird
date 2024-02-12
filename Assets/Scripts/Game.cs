@@ -18,6 +18,12 @@ public class Game : MonoBehaviour
         _bird.OnDie -= OnBirdDie;
     }
 
+    private void Start()
+    { 
+        Application.targetFrameRate = 60;
+        AudioManager.Instance.PlayMusic("Main");
+    }
+
 
     private void OnBirdDie()
     { 
