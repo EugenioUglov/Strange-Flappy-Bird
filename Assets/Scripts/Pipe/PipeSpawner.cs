@@ -7,7 +7,6 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField] private Vector2 _yRandomRange = new Vector2(1f, -4f);
 
     [SerializeField] private PipeGroup _pipeMovement;
-    [SerializeField] private GameState _gameState;
 
     private List<PipeGroup> _pipeGroups;
     private float _leftEdgeOutsideCamera;
@@ -33,16 +32,17 @@ public class PipeSpawner : MonoBehaviour
         _leftEdgeOutsideCamera = Camera.main.ScreenToWorldPoint(Vector3.zero).x - 10;
     }
 
-    private void Update()
+
+    public void UpdatePipes()
     {
-        if (_gameState.CurrentGameState == GameState.GameStateEnum.Pause || _pipeGroups.Count == 0)
+        if (_pipeGroups.Count == 0)
         {
             return;
         }
 
         foreach (var pipeMovement in _pipeGroups)
         {
-            pipeMovement.MoveStep();
+            pipeMovement.MoveOnStep();
         }
 
         if (_pipeGroups[0].transform.position.x < _leftEdgeOutsideCamera)

@@ -4,8 +4,6 @@ public class Parallax : MonoBehaviour
 {
     [SerializeField] private float _animationSpeed = 1;
 
-    [SerializeField] private GameState _gameState;
-
     private MeshRenderer _meshRenderer;
 
 
@@ -14,13 +12,9 @@ public class Parallax : MonoBehaviour
         _meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    private void Update() 
+
+    public void MoveOnStep() 
     {
-        if (_gameState.CurrentGameState == GameState.GameStateEnum.Pause)
-        {
-            return;
-        }
-        
         _meshRenderer.material.mainTextureOffset += new Vector2(_animationSpeed * Time.deltaTime, 0);
     }
 }

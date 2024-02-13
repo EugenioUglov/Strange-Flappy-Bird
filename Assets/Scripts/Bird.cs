@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
+using Unity.VisualScripting;
 
 public class Bird : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Bird : MonoBehaviour
     [SerializeField] private GameObject _bloodEffect;
     [SerializeField] private GameObject _blood;
     [SerializeField] private Score _score;
+    [SerializeField] private UserInput _userInput;
 
     private bool _isDead = false;
     private Rigidbody2D _rigidbody;
@@ -24,6 +26,14 @@ public class Bird : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+    }
+
+    private void Update() 
+    {
+        if (_userInput.IsBirdJump && _isDead == false)
+        {
+            Jump();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

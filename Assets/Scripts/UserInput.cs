@@ -1,14 +1,18 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UserInput : MonoBehaviour
 {
-    [SerializeField] private GameState _gameState;
     [SerializeField] private Bird _bird;
+
+    public bool IsBirdJump { get; private set; }
+    public bool IsGameRestart { get; private set; }
 
 
     void Update()
     {
+        IsBirdJump = false;
+        IsGameRestart = false;
+        
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             OnClick();
@@ -27,13 +31,7 @@ public class UserInput : MonoBehaviour
 
     private void OnClick() 
     {
-        if (_gameState.CurrentGameState == GameState.GameStateEnum.Pause)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else 
-        {
-            _bird.Jump();
-        }
+        IsBirdJump = true;
+        IsGameRestart = true;
     }
 }

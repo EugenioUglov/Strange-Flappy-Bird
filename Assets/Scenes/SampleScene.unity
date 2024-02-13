@@ -414,6 +414,7 @@ MonoBehaviour:
   _bloodEffect: {fileID: 1751240340}
   _blood: {fileID: 4440176325419471878, guid: dc69f3960ed7bb841b6e627f156e8490, type: 3}
   _score: {fileID: 1150415848}
+  _userInput: {fileID: 1932192110}
 --- !u!1 &178015938
 GameObject:
   m_ObjectHideFlags: 0
@@ -5552,50 +5553,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &905105210
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 905105212}
-  - component: {fileID: 905105211}
-  m_Layer: 0
-  m_Name: Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &905105211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905105210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3563e53c1b22a184d8b5b31483ffbbf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &905105212
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905105210}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3916033, y: 0.7586919, z: 0.0020691394}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &979036058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5803,7 +5760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationSpeed: 0.05
-  _gameState: {fileID: 234710182}
 --- !u!1 &1150415847
 GameObject:
   m_ObjectHideFlags: 0
@@ -10902,7 +10858,6 @@ MonoBehaviour:
   _spawnRate: 2
   _yRandomRange: {x: 1, y: -4}
   _pipeMovement: {fileID: 8247068406573840513, guid: ce9ca58879777ff419629030581efaff, type: 3}
-  _gameState: {fileID: 234710182}
 --- !u!4 &1553296384
 Transform:
   m_ObjectHideFlags: 0
@@ -11182,7 +11137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affa86b9edd9b9b49a5a3170df9267c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameState: {fileID: 234710182}
   _bird: {fileID: 128865495}
 --- !u!4 &1932192111
 Transform:
@@ -11197,7 +11151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2101661923
 GameObject:
@@ -11234,7 +11188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationSpeed: 0.5
-  _gameState: {fileID: 234710182}
 --- !u!23 &2101661925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11392,6 +11345,10 @@ MonoBehaviour:
   _pipeSpawner: {fileID: 1553296383}
   _clickToRestartGO: {fileID: 1571844252}
   _bird: {fileID: 128865495}
+  _userInput: {fileID: 1932192110}
+  _parallaxes:
+  - {fileID: 1001510497}
+  - {fileID: 2101661924}
 --- !u!4 &2126970962
 Transform:
   m_ObjectHideFlags: 0
@@ -11405,5 +11362,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
