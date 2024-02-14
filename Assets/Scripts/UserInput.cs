@@ -11,7 +11,7 @@ public class UserInput : MonoBehaviour
         IsBirdJump = false;
         IsGameRestart = false;
 
-        #if UNITY_STANDALONE_WIN || UNITY_EDITOR   
+        #if UNITY_STANDALONE_WIN || UNITY_EDITOR || UNITY_WEBGL
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             OnClick();

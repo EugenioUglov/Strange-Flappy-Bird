@@ -5792,7 +5792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16bf08cf0ba595419dd65a3fe41d96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreTextMehPro: {fileID: 1194411057}
+  _textMehPro: {fileID: 1194411057}
 --- !u!114 &1150415849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11137,7 +11137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affa86b9edd9b9b49a5a3170df9267c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bird: {fileID: 128865495}
 --- !u!4 &1932192111
 Transform:
   m_ObjectHideFlags: 0
