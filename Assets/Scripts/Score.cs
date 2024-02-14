@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _scoreTextMehPro;
+    [SerializeField] private TMP_Text _textMehPro;
     
-    private int _scoreNumber = 0;
+    private int _number = 0;
 
 
     public void AddScore()
     {
-        _scoreNumber++;
-        _scoreTextMehPro.text = _scoreNumber.ToString();
+        _number++;
+        _textMehPro.text = _number.ToString();
     }
 }

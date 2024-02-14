@@ -29,6 +29,7 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
+        _userInput.ListenClick();
         if (_gameState.CurrentGameState == GameState.GameStateEnum.Playing)
         {
             foreach (var parallax in _parallaxes)
@@ -46,6 +47,7 @@ public class Game : MonoBehaviour
             }
         }
     }
+
 
     private void OnBirdDie()
     { 
